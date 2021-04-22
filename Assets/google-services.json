@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "107397118427",
+    "project_id": "fir-unity-demo-d083d",
+    "storage_bucket": "fir-unity-demo-d083d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:107397118427:android:0f36cda3006a92863e8ffe",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.NewUnityProject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "107397118427-43blt2nu28kct4cv4kif5q5ur4jg56ie.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXKTICxa0fHW7J0fKEsvPSMxodfVq8M6A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "107397118427-43blt2nu28kct4cv4kif5q5ur4jg56ie.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
