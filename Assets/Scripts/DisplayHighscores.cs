@@ -11,7 +11,7 @@ public class DisplayHighscores : MonoBehaviour{
     void Start()
     {
         for (int i = 0; i < highscoreText.Length; i++){
-            highscoreText[i].text = i+1+". Fetching...";
+            highscoreText[i].text = /*i+1+*/". Fetching...";
         }
         highscoreManager = GetComponent<Highscores>();
 
@@ -20,9 +20,9 @@ public class DisplayHighscores : MonoBehaviour{
 
     public void OnHighscoresDownloaded(Highscore[] highscoreList){
         for (int i = 0; i < highscoreText.Length; i++){
-            highscoreText[i].text = i+1 + ". ";
+            highscoreText[i].text = "";
             if(highscoreList.Length > i){
-                highscoreText[i].text += highscoreList[i].username + "-" + highscoreList[i].score;
+                highscoreText[i].text += highscoreList[i].username + "                " + highscoreList[i].score;
             }
         }
     }
