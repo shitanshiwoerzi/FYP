@@ -55,6 +55,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Esc.cs" />
      <Compile Include="Assets\Scripts\AnimationBG.cs" />
      <Compile Include="Assets\Scripts\Back.cs" />
      <Compile Include="Assets\Scripts\DisplayHighscores.cs" />
@@ -74,6 +75,7 @@
      <Compile Include="Assets\Scripts\Spawner.cs" />
      <Compile Include="Assets\Scripts\TransferData.cs" />
      <Compile Include="Assets\Scripts\TrapPlatform.cs" />
+     <Compile Include="Assets\Scripts\Tuichu.cs" />
      <Compile Include="Assets\SetVolum.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />

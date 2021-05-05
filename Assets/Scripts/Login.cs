@@ -14,6 +14,10 @@ public class Login : MonoBehaviour
     private string Password;
     private String[] Lines;
     private string DecryptedPassword;
+    public Text unInvalid; // Username Invalid
+    public Text unEmpty; // Username field empty
+    public Text pwdInvalid; // Password is invalid
+    public Text pwdEmpty; // Password field empty
 
     public void LoginButton(){
         bool UN = false;
@@ -26,9 +30,13 @@ public class Login : MonoBehaviour
                 Lines = System.IO.File.ReadAllLines(@"D:/UnityTestFolder/" + Username +".txt");
             } else {
                 Debug.LogWarning("Username Invalid");
+                unInvalid.gameObject.SetActive(true);
+                StartCoroutine(Disappear());
             }
         }else{
             Debug.LogWarning("Username field empty");
+            unEmpty.gameObject.SetActive(true);
+            StartCoroutine(Disappear());
         }
 
         //check password
@@ -44,12 +52,18 @@ public class Login : MonoBehaviour
                 PW = true;
             } else{
                     Debug.LogWarning("Password is invalid");
+                    pwdInvalid.gameObject.SetActive(true);
+                    StartCoroutine(Disappear());
             }
         } else{
                 Debug.LogWarning("Password is invalid");
+                pwdInvalid.gameObject.SetActive(true);
+                StartCoroutine(Disappear());
         }
     } else{
             Debug.LogWarning("Password field empty");
+            pwdEmpty.gameObject.SetActive(true);
+            StartCoroutine(Disappear());
     }
 
 
@@ -62,8 +76,7 @@ public class Login : MonoBehaviour
         Debug.Log(un);
         username.GetComponent<InputField>().text = "";
         password.GetComponent<InputField>().text = "";
-        print("Login Successful");
-         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
 }
 
@@ -81,5 +94,14 @@ public class Login : MonoBehaviour
 
         Username = username.GetComponent<InputField>().text;
         Password = password.GetComponent<InputField>().text;
+    }
+
+        IEnumerator Disappear()
+    {
+        yield return new WaitForSeconds(2);// Maintain 2 seconds
+        unInvalid.gameObject.SetActive(false);// tip disappears
+        unEmpty.gameObject.SetActive(false); // tip disappears
+        pwdInvalid.gameObject.SetActive(false);// tip disappears
+        pwdEmpty.gameObject.SetActive(false);// tip disappears
     }
 }

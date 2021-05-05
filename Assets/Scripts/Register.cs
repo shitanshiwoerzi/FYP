@@ -12,6 +12,14 @@ public class Register : MonoBehaviour
     public GameObject email;
     public GameObject password;
     public GameObject confPassword;
+    public Text unTaken;
+    public Text unEmpty;
+    public Text emIncorrect;
+    public Text emEmpty;
+    public Text pwdLength;
+    public Text pwdEmpty;
+    public Text confpwdMatch;
+    public Text confpwdEmpty;
     private string Username;
     private string Email;
     private string Password;
@@ -37,9 +45,13 @@ public class Register : MonoBehaviour
                 UN = true;
             } else {
                 Debug.LogWarning("Username Taken");
+                unTaken.gameObject.SetActive(true);
+                StartCoroutine(Disappear());
             } 
         } else {
             Debug.LogWarning("Username field Empty");
+            unEmpty.gameObject.SetActive(true);
+            StartCoroutine(Disappear());            
         }
         // check email
         if(Email != ""){
@@ -50,15 +62,23 @@ public class Register : MonoBehaviour
                         EM = true;
                     } else{
                         Debug.LogWarning("Email is Incorrect");
+                        emIncorrect.gameObject.SetActive(true);
+                        StartCoroutine(Disappear());
                     }
                 } else{
                     Debug.LogWarning("Email is Incorrect");
+                    emIncorrect.gameObject.SetActive(true);
+                    StartCoroutine(Disappear());
                 }
             } else{
                 Debug.LogWarning("Email is Incorrect");
+                emIncorrect.gameObject.SetActive(true);
+                StartCoroutine(Disappear());
             } 
         } else{
             Debug.LogWarning("Email Field Empty");
+            emEmpty.gameObject.SetActive(true);
+            StartCoroutine(Disappear());
         }
 
         // check password
@@ -67,9 +87,13 @@ public class Register : MonoBehaviour
                 PW = true;
             } else{
                 Debug.LogWarning("Password must be at least 6 characters long");
+                pwdLength.gameObject.SetActive(true);
+                StartCoroutine(Disappear());
             }
         } else{
             Debug.LogWarning("Password field is empty");
+            pwdEmpty.gameObject.SetActive(true);
+            StartCoroutine(Disappear());
         }
 
         //check confirm password
@@ -78,9 +102,13 @@ public class Register : MonoBehaviour
                 CPW = true;
             } else{
                 Debug.LogWarning("Passwords don't match");
+                confpwdMatch.gameObject.SetActive(true);
+                StartCoroutine(Disappear());
             }
         } else{
             Debug.LogWarning("Confirm password field empty");
+            confpwdEmpty.gameObject.SetActive(true);
+            StartCoroutine(Disappear());
         }
 
         if(UN == true && EM == true && PW == true && CPW == true){
@@ -126,7 +154,6 @@ public class Register : MonoBehaviour
         Email = email.GetComponent<InputField>().text;
         Password = password.GetComponent<InputField>().text;
         ConfPassword = confPassword.GetComponent<InputField>().text;
-
     }
 
     void EmailValidation(){
@@ -148,4 +175,17 @@ public class Register : MonoBehaviour
         }
     }
 
+    IEnumerator Disappear()
+    {
+        yield return new WaitForSeconds(2);//产生效果两秒
+        unTaken.gameObject.SetActive(false);
+        unEmpty.gameObject.SetActive(false);
+        emIncorrect.gameObject.SetActive(false);
+        emEmpty.gameObject.SetActive(false);
+        pwdLength.gameObject.SetActive(false);
+        pwdEmpty.gameObject.SetActive(false);
+        confpwdMatch.gameObject.SetActive(false);
+        confpwdEmpty.gameObject.SetActive(false);
+
+    }
 }
